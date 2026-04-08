@@ -13,11 +13,23 @@ export class ProductItem extends LitElement {
 
   render() {
     return html`<li class="product-item">
-      <img
-        class="product-item__image"
-        srcset="${this.product.image.mobile}"
-        alt="${this.product.name}"
-      />
+      <picture>
+        <source
+          media="(min-width: 90rem)"
+          srcset="${this.product.image.desktop}"
+        />
+
+        <source
+          media="(min-width: 48rem)"
+          srcset="${this.product.image.tablet}"
+        />
+
+        <img
+          class="product-item__image"
+          srcset="${this.product.image.mobile}"
+          alt="${this.product.name}"
+        />
+      </picture>
 
       <button class="product-item__add-to-cart">
         <img src=${addToCartIcon} alt="Add to Cart" />Add to Cart
