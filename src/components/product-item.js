@@ -1,5 +1,7 @@
 import { LitElement, html, css } from 'lit';
 
+import addToCartIcon from '../assets/icons/icon-add-to-cart.svg';
+
 import { resetStyles } from '../styles/reset.styles';
 
 export class ProductItem extends LitElement {
@@ -11,7 +13,15 @@ export class ProductItem extends LitElement {
 
   render() {
     return html`<li class="product-item">
-      <img />
+      <img
+        class="product-item__image"
+        srcset="${this.product.image.mobile}"
+        alt="${this.product.name}"
+      />
+
+      <button class="product-item__add-to-cart">
+        <img src=${addToCartIcon} alt="Add to Cart" />Add to Cart
+      </button>
 
       <div class="product-item__info">
         <h2>${this.product.category}</h2>
@@ -29,6 +39,25 @@ export class ProductItem extends LitElement {
       css`
         :host {
           display: block;
+        }
+
+        .product-item {
+          display: grid;
+        }
+
+        .product-item__image {
+          border-radius: 0.5rem;
+        }
+
+        .product-item__add-to-cart {
+          background-color: var(--white);
+          border: 1px solid var(--rose-400);
+          padding: 0.75rem;
+          border-radius: 999px;
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+          justify-self: center;
         }
 
         .product-item__info {

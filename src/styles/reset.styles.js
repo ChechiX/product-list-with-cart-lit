@@ -18,4 +18,15 @@ export const resetStyles = css`
   p {
     margin: 0;
   }
+
+  img {
+    display: block;
+    block-size: auto;
+    max-inline-size: 100%;
+  }
+
+  button {
+    padding: 0;
+    border: none;
+  }
 `;
