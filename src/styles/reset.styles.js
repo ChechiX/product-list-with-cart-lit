@@ -15,6 +15,7 @@ export const resetStyles = css`
 
   h1,
   h2,
+  h3,
   p {
     margin: 0;
   }

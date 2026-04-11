@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 
 import './components/product-list';
+import './components/cart-panel';
 
 import { resetStyles } from './styles/reset.styles';
 
@@ -10,6 +11,8 @@ export class ProductListWithCart extends LitElement {
       <h1 class="product-list-with-cart__heading">Desserts</h1>
 
       <product-list></product-list>
+
+      <cart-panel></cart-panel>
     </main>`;
   }
 

@@ -46,6 +46,10 @@ body {
   padding: 1.5rem;
   line-height: 1.5;
   background-color: var(--rose-50);
+
+  @media (min-width: 48rem) {
+    padding: 2.5rem;
+  }
 }
 
 .attribution {
