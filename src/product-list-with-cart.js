@@ -8,6 +8,7 @@ export class ProductListWithCart extends LitElement {
   render() {
     return html`<main class="product-list-with-cart">
       <h1 class="product-list-with-cart__heading">Desserts</h1>
+
       <product-list></product-list>
     </main>`;
   }
@@ -21,10 +22,16 @@ export class ProductListWithCart extends LitElement {
         }
 
         .product-list-with-cart {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
         }
 
         .product-list-with-cart__heading {
           color: var(--rose-900);
+          font-size: 2.5rem;
+          line-height: 1.2;
+          font-weight: 700;
         }
       `,
     ];

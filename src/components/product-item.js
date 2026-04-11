@@ -36,11 +36,11 @@ export class ProductItem extends LitElement {
       </button>
 
       <div class="product-item__info">
-        <h2>${this.product.category}</h2>
+        <h2 class="product-item__category">${this.product.category}</h2>
 
-        <p>${this.product.name}</p>
+        <p class="product-item__name">${this.product.name}</p>
 
-        <p>$${this.product.price.toFixed(2)}</p>
+        <p class="product-item__price">$${this.product.price.toFixed(2)}</p>
       </div>
     </li>`;
   }
@@ -70,12 +70,34 @@ export class ProductItem extends LitElement {
           gap: 0.5rem;
           align-items: center;
           justify-self: center;
+          transform: translateY(-50%);
+          color: var(--rose-900);
+          font-size: 0.875rem;
+          font-weight: 600;
         }
 
         .product-item__info {
           display: flex;
           flex-direction: column;
           gap: 0.25rem;
+        }
+
+        .product-item__category {
+          color: var(--rose-500);
+          font-size: 0.875rem;
+          font-weight: 600;
+        }
+
+        .product-item__name {
+          color: var(--rose-900);
+          font-size: 1rem;
+          font-weight: 600;
+        }
+
+        .product-item__price {
+          color: var(--red);
+          font-size: 1rem;
+          font-weight: 600;
         }
       `,
     ];

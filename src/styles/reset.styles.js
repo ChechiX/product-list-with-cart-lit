@@ -28,5 +28,6 @@ export const resetStyles = css`
   button {
     padding: 0;
     border: none;
+    font-family: inherit;
   }
 `;
