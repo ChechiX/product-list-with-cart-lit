@@ -8,9 +8,11 @@ import { resetStyles } from './styles/reset.styles';
 export class ProductListWithCart extends LitElement {
   render() {
     return html`<main class="product-list-with-cart">
-      <h1 class="product-list-with-cart__heading">Desserts</h1>
+      <div class="product-list-with-cart__products">
+        <h1 class="product-list-with-cart__heading">Desserts</h1>
 
-      <product-list></product-list>
+        <product-list></product-list>
+      </div>
 
       <cart-panel></cart-panel>
     </main>`;
@@ -25,6 +27,17 @@ export class ProductListWithCart extends LitElement {
         }
 
         .product-list-with-cart {
+          display: grid;
+          place-self: center;
+          gap: 2rem;
+          max-width: 76rem;
+
+          @media (min-width: 64rem) {
+            grid-template-columns: 50rem 24rem;
+          }
+        }
+
+        .product-list-with-cart__products {
           display: flex;
           flex-direction: column;
           gap: 2rem;
