@@ -1,11 +1,21 @@
 import { LitElement, html, unsafeCSS } from 'lit';
+import { ContextProvider } from '@lit/context';
 import './components/product-list';
 import './components/cart-panel';
 import styles from './product-list-with-cart.scss?inline';
 import { resetStyles } from './styles/reset.styles';
+import { cartContext } from './context/cart.context';
 
 export class ProductListWithCart extends LitElement {
   static styles = [resetStyles, unsafeCSS(styles)];
+
+  static properties = {};
+
+  constructor() {
+    super();
+
+    this._provider = new ContextProvider(this, { context: cartContext });
+  }
 
   render() {
     return html`<main class="product-list-with-cart">
