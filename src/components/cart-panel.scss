@@ -1,0 +1,28 @@
+.cart-panel {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cart-panel__heading {
+  color: var(--red);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.cart-panel__empty {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-panel__empty-text {
+  color: var(--rose-500);
+  font-size: 0.875rem;
+  font-weight: 600;
+}

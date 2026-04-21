@@ -1,11 +1,12 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css, unsafeCSS } from 'lit';
 import { Task } from '@lit/task';
-
 import './product-item';
-
+import styles from './product-list.scss?inline';
 import { resetStyles } from '../styles/reset.styles';
 
 export class ProductList extends LitElement {
+  static styles = [resetStyles, unsafeCSS(styles)];
+
   _productsTask = new Task(this, {
     task: async () => {
       const response = await fetch('/data.json');
@@ -31,27 +32,6 @@ export class ProductList extends LitElement {
         </ul>`,
       error: (error) => html`<p>Error: ${error.message}</p>`,
     });
-  }
-
-  static get styles() {
-    return [
-      resetStyles,
-      css`
-        :host {
-          display: block;
-        }
-
-        .product-list {
-          display: grid;
-          gap: 1.5rem;
-
-          @media (min-width: 48rem) {
-            grid-template-columns: repeat(3, 1fr);
-            row-gap: 2rem;
-          }
-        }
-      `,
-    ];
   }
 }
 

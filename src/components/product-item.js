@@ -1,10 +1,11 @@
-import { LitElement, html, css } from 'lit';
-
+import { LitElement, html, css, unsafeCSS } from 'lit';
 import addToCartIcon from '../assets/icons/icon-add-to-cart.svg';
-
+import styles from './product-item.scss?inline';
 import { resetStyles } from '../styles/reset.styles';
 
 export class ProductItem extends LitElement {
+  static styles = [resetStyles, unsafeCSS(styles)];
+
   static get properties() {
     return {
       product: { type: Object },
@@ -15,7 +16,7 @@ export class ProductItem extends LitElement {
     return html`<li class="product-item">
       <picture>
         <source
-          media="(min-width: 90rem)"
+          media="(min-width: 64rem)"
           srcset="${this.product.image.desktop}"
         />
 
@@ -43,64 +44,6 @@ export class ProductItem extends LitElement {
         <p class="product-item__price">$${this.product.price.toFixed(2)}</p>
       </div>
     </li>`;
-  }
-
-  static get styles() {
-    return [
-      resetStyles,
-      css`
-        :host {
-          display: block;
-        }
-
-        .product-item {
-          display: grid;
-        }
-
-        .product-item__image {
-          border-radius: 0.5rem;
-        }
-
-        .product-item__add-to-cart {
-          background-color: var(--white);
-          border: 1px solid var(--rose-400);
-          padding: 0.75rem;
-          border-radius: 999px;
-          display: flex;
-          gap: 0.5rem;
-          align-items: center;
-          justify-self: center;
-          transform: translateY(-50%);
-          color: var(--rose-900);
-          font-size: 0.875rem;
-          font-weight: 600;
-        }
-
-        .product-item__info {
-          display: flex;
-          flex-direction: column;
-          gap: 0.25rem;
-        }
-
-        .product-item__category {
-          color: var(--rose-500);
-          font-size: 0.875rem;
-          font-weight: 600;
-        }
-
-        .product-item__name {
-          color: var(--rose-900);
-          font-size: 1rem;
-          font-weight: 600;
-        }
-
-        .product-item__price {
-          color: var(--red);
-          font-size: 1rem;
-          font-weight: 600;
-        }
-      `,
-    ];
   }
 }
 
