@@ -32,7 +32,7 @@ export class ProductItem extends LitElement {
         />
       </picture>
 
-      <button class="product-item__add-to-cart">
+      <button class="product-item__add-to-cart" @click=${this._handleAddToCart}>
         <img src=${addToCartIcon} alt="Add to Cart" />Add to Cart
       </button>
 
@@ -44,6 +44,16 @@ export class ProductItem extends LitElement {
         <p class="product-item__price">$${this.product.price.toFixed(2)}</p>
       </div>
     </li>`;
+  }
+
+  _handleAddToCart() {
+    this.dispatchEvent(
+      new CustomEvent('add-to-cart', {
+        detail: this.product,
+        bubbles: true,
+        composed: true,
+      }),
+    );
   }
 }
 
