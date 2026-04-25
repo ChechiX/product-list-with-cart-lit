@@ -32,4 +32,8 @@ export const resetStyles = css`
     border: none;
     font-family: inherit;
   }
+
+  hr {
+    border: 1px solid var(--rose-100);
+  }
 `;

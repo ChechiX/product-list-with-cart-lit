@@ -11,29 +11,41 @@ export class CartItem extends LitElement {
   };
 
   get totalPrice() {
-    return this.item.price;
+    return this.item.product.price * this.item.quantity;
   }
 
   render() {
     return html`<li class="cart-item">
         <div class="cart-item__info">
-          <p>${this.item.name}</p>
+          <p class="cart-item__info-name">${this.item.product.name}</p>
 
           <div class="cart-item__quantity">
-            <p>1x</p>
+            <p class="cart-item__quantity-amount">${this.item.quantity}x</p>
 
-            <p>@ $${this.item.price.toFixed(2)}</p>
+            <p class="cart-item__quantity-price">
+              @ $${this.item.product.price.toFixed(2)}
+            </p>
 
-            <p>$${this.totalPrice.toFixed(2)}</p>
+            <p class="cart-item__total-price">$${this.totalPrice.toFixed(2)}</p>
           </div>
         </div>
 
-        <button class="cart-item__remove">
+        <button class="cart-item__remove" @click=${this._handleRemoveItem}>
           <img src="${removeItemIcon}" alt="Remove item" />
         </button>
       </li>
 
       <hr /> `;
+  }
+
+  _handleRemoveItem() {
+    this.dispatchEvent(
+      new CustomEvent('remove-cart-item', {
+        detail: this.item.product,
+        bubbles: true,
+        composed: true,
+      }),
+    );
   }
 }
 
